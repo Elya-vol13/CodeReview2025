@@ -1,0 +1,273 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PetStore</name>
+    </assembly>
+    <members>
+        <!-- Класс DatabaseService -->
+        <member name="T:PetStore.DatabaseService">
+            <summary>
+            Основной сервис для работы с базой данных магазина животных
+            </summary>
+            <remarks>
+            Использует Excel-файл в качестве хранилища данных.
+            Содержит три листа: Animals (ID, Species, Breed), 
+            Customers (ID, Name, Age, Address), 
+            Sales (ID, AnimalID, CustomerID, Date, Price).
+            </remarks>
+        </member>
+
+        <!-- Конструктор -->
+        <member name="M:PetStore.DatabaseService.#ctor(System.String)">
+            <summary>
+            Инициализирует новый экземпляр DatabaseService
+            </summary>
+            <param name="_filePath">Путь к Excel-файлу с базой данных</param>
+            <exception cref="T:System.IO.FileNotFoundException">Выбрасывается если файл не существует</exception>
+        </member>
+
+        <!-- Методы работы с животными -->
+        <member name="M:PetStore.DatabaseService.getAnimals">
+            <summary>
+            Получает список всех животных из базы данных
+            </summary>
+            <returns>Список объектов Animal</returns>
+        </member>
+
+        <member name="M:PetStore.DatabaseService.getAnimalById(System.Int32)">
+            <summary>
+            Находит животное по идентификатору
+            </summary>
+            <param name="_id">ID животного</param>
+            <returns>Объект Animal или null если не найдено</returns>
+        </member>
+
+        <member name="M:PetStore.DatabaseService.addAnimal(PetStore.Animal)">
+            <summary>
+            Добавляет новое животное в базу данных
+            </summary>
+            <param name="_animal">Объект Animal для добавления</param>
+        </member>
+
+        <member name="M:PetStore.DatabaseService.updateAnimal(System.Int32,PetStore.Animal)">
+            <summary>
+            Обновляет данные животного
+            </summary>
+            <param name="_id">ID животного</param>
+            <param name="_updatedAnimal">Новые данные животного</param>
+        </member>
+
+        <member name="M:PetStore.DatabaseService.deleteAnimal(System.Int32)">
+            <summary>
+            Удаляет животное из базы данных
+            </summary>
+            <param name="_id">ID животного для удаления</param>
+        </member>
+
+        <member name="M:PetStore.DatabaseService.getAnimalsBySpecies(System.String)">
+            <summary>
+            Фильтрует животных по виду
+            </summary>
+            <param name="_species">Вид животного (без учета регистра)</param>
+            <returns>Список животных указанного вида</returns>
+        </member>
+
+        <!-- Методы работы с клиентами -->
+        <member name="M:PetStore.DatabaseService.getCustomers">
+            <summary>
+            Получает список всех клиентов
+            </summary>
+            <returns>Список объектов Customer</returns>
+        </member>
+
+        <member name="M:PetStore.DatabaseService.getCustomerById(System.Int32)">
+            <summary>
+            Находит клиента по идентификатору
+            </summary>
+            <param name="_id">ID клиента</param>
+            <returns>Объект Customer или null если не найдено</returns>
+        </member>
+
+        <member name="M:PetStore.DatabaseService.addCustomer(PetStore.Customer)">
+            <summary>
+            Добавляет нового клиента
+            </summary>
+            <param name="_customer">Объект Customer для добавления</param>
+        </member>
+
+        <member name="M:PetStore.DatabaseService.updateCustomer(System.Int32,PetStore.Customer)">
+            <summary>
+            Обновляет данные клиента
+            </summary>
+            <param name="_id">ID клиента</param>
+            <param name="_updatedCustomer">Новые данные клиента</param>
+        </member>
+
+        <member name="M:PetStore.DatabaseService.deleteCustomer(System.Int32)">
+            <summary>
+            Удаляет клиента
+            </summary>
+            <param name="_id">ID клиента для удаления</param>
+        </member>
+
+        <member name="M:PetStore.DatabaseService.getCustomerIdByName(System.String)">
+            <summary>
+            Находит ID клиента по имени
+            </summary>
+            <param name="_name">Имя клиента (без учета регистра)</param>
+            <returns>ID клиента или null если не найден</returns>
+        </member>
+
+        <!-- Методы работы с продажами -->
+        <member name="M:PetStore.DatabaseService.getSales">
+            <summary>
+            Получает список всех продаж
+            </summary>
+            <returns>Список объектов Sale</returns>
+        </member>
+
+        <member name="M:PetStore.DatabaseService.getSaleById(System.Int32)">
+            <summary>
+            Находит продажу по идентификатору
+            </summary>
+            <param name="_id">ID продажи</param>
+            <returns>Объект Sale или null если не найдено</returns>
+        </member>
+
+        <member name="M:PetStore.DatabaseService.addSale(PetStore.Sale)">
+            <summary>
+            Добавляет новую продажу
+            </summary>
+            <param name="_sale">Объект Sale для добавления</param>
+        </member>
+
+        <member name="M:PetStore.DatabaseService.updateSale(System.Int32,PetStore.Sale)">
+            <summary>
+            Обновляет данные о продаже
+            </summary>
+            <param name="_id">ID продажи</param>
+            <param name="_updatedSale">Новые данные о продаже</param>
+        </member>
+
+        <member name="M:PetStore.DatabaseService.deleteSale(System.Int32)">
+            <summary>
+            Удаляет продажу
+            </summary>
+            <param name="_id">ID продажи для удаления</param>
+        </member>
+
+        <member name="M:PetStore.DatabaseService.getSalesCountByCustomerName(System.String)">
+            <summary>
+            Считает количество продаж по имени клиента
+            </summary>
+            <param name="_customerName">Имя клиента</param>
+            <returns>Количество продаж</returns>
+        </member>
+
+        <!-- Специальные запросы -->
+        <member name="M:PetStore.DatabaseService.getAnimalSpeciesPurchasedBySeniors">
+            <summary>
+            Получает виды животных, купленных клиентами старше 50 лет
+            </summary>
+            <returns>Список уникальных видов</returns>
+        </member>
+
+        <member name="M:PetStore.DatabaseService.getTotalPriceOfAraPurchasedByUfaResidents">
+            <summary>
+            Вычисляет общую стоимость попугаев Ара, купленных жителями Уфы
+            </summary>
+            <returns>Суммарная стоимость</returns>
+        </member>
+
+        <!-- Приватные методы -->
+        <member name="M:PetStore.DatabaseService.readAnimals">
+            <summary>
+            [Приватный] Читает данные о животных из Excel-листа
+            </summary>
+            <returns>Список животных</returns>
+        </member>
+
+        <member name="M:PetStore.DatabaseService.readCustomers">
+            <summary>
+            [Приватный] Читает данные о клиентах из Excel-листа
+            </summary>
+            <returns>Список клиентов</returns>
+        </member>
+
+        <member name="M:PetStore.DatabaseService.readSales">
+            <summary>
+            [Приватный] Читает данные о продажах из Excel-листа
+            </summary>
+            <returns>Список продаж</returns>
+        </member>
+
+        <!-- Приватные методы работы с животными -->
+        <member name="M:PetStore.DatabaseService.addAnimalToTable(PetStore.Animal)">
+            <summary>
+            [Приватный] Добавляет животное в таблицу Excel
+            </summary>
+            <param name="_animal">Объект Animal для добавления</param>
+        </member>
+
+        <member name="M:PetStore.DatabaseService.removeAnimalFromTable(System.Int32)">
+            <summary>
+            [Приватный] Удаляет животное из таблицы Excel
+            </summary>
+            <param name="_id">ID животного</param>
+        </member>
+
+        <member name="M:PetStore.DatabaseService.updateAnimalInTable(System.Int32,PetStore.Animal)">
+            <summary>
+            [Приватный] Обновляет данные животного в таблице Excel
+            </summary>
+            <param name="_id">ID животного</param>
+            <param name="_updatedAnimal">Обновленные данные</param>
+        </member>
+
+        <!-- Приватные методы работы с клиентами -->
+        <member name="M:PetStore.DatabaseService.addCustomerToTable(PetStore.Customer)">
+            <summary>
+            [Приватный] Добавляет клиента в таблицу Excel
+            </summary>
+            <param name="_customer">Объект Customer для добавления</param>
+        </member>
+
+        <member name="M:PetStore.DatabaseService.removeCustomerFromTable(System.Int32)">
+            <summary>
+            [Приватный] Удаляет клиента из таблицы Excel
+            </summary>
+            <param name="_id">ID клиента</param>
+        </member>
+
+        <member name="M:PetStore.DatabaseService.updateCustomerInTable(System.Int32,PetStore.Customer)">
+            <summary>
+            [Приватный] Обновляет данные клиента в таблице Excel
+            </summary>
+            <param name="_id">ID клиента</param>
+            <param name="_updatedCustomer">Обновленные данные</param>
+        </member>
+
+        <!-- Приватные методы работы с продажами -->
+        <member name="M:PetStore.DatabaseService.addSaleToTable(PetStore.Sale)">
+            <summary>
+            [Приватный] Добавляет продажу в таблицу Excel
+            </summary>
+            <param name="_sale">Объект Sale для добавления</param>
+        </member>
+
+        <member name="M:PetStore.DatabaseService.removeSaleFromTable(System.Int32)">
+            <summary>
+            [Приватный] Удаляет продажу из таблицы Excel
+            </summary>
+            <param name="_id">ID продажи</param>
+        </member>
+
+        <member name="M:PetStore.DatabaseService.updateSaleInTable(System.Int32,PetStore.Sale)">
+            <summary>
+            [Приватный] Обновляет данные о продаже в таблице Excel
+            </summary>
+            <param name="_id">ID продажи</param>
+            <param name="_updatedSale">Обновленные данные</param>
+        </member>
+    </members>
+</doc>

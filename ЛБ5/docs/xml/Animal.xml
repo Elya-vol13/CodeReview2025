@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PetStore</name>
+    </assembly>
+    <members>
+        <member name="T:PetStore.Animal">
+            <summary>
+            Класс, представляющий животное в магазине
+            </summary>
+        </member>
+
+        <member name="P:PetStore.Animal.Id">
+            <summary>
+            Уникальный идентификатор животного
+            </summary>
+        </member>
+
+        <member name="P:PetStore.Animal.Species">
+            <summary>
+            Вид животного (например, "Собака", "Кошка")
+            </summary>
+        </member>
+
+        <member name="P:PetStore.Animal.Breed">
+            <summary>
+            Порода животного
+            </summary>
+        </member>
+        
+        <member name="M:PetStore.Animal.#ctor(System.Int32,System.String,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса Animal
+            </summary>
+            <param name="_id">ID животного</param>
+            <param name="_species">Вид животного</param>
+            <param name="_breed">Порода животного</param>
+        </member>
+    </members>
+</doc>

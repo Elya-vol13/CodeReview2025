@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Документация PetStore</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        h2 { color: #2980b9; margin-top: 30px; }
+        .class-info { background: #f8f9fa; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+        .method { background: #e8f4fc; padding: 12px; margin: 10px 0; border-radius: 5px; border-left: 4px solid #3498db; }
+        .method-name { font-weight: bold; color: #2c3e50; }
+        .param { margin-left: 20px; font-style: italic; }
+        .returns { color: #27ae60; }
+        .remarks { background: #f1f1f1; padding: 8px; border-radius: 3px; margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <h1>PetStore.DatabaseController</h1>
+    <div class="class-info">
+        <p><strong>Описание:</strong> 
+            Контроллер для управления базой данных через консольный интерфейс
+            </p>
+        <div class="remarks">
+            Обеспечивает взаимодействие между пользователем и DatabaseService.
+            Все изменения автоматически сохраняются в файл базы данных.
+            </div>
+    </div>
+
+    <h2>Методы</h2>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseController.#ctor(<span class="params">System.String</span>)</div>
+        <div class="summary">
+            Инициализирует новый экземпляр DatabaseController
+            </div>
+        
+            <div class="param">
+                <strong>_filePath:</strong> Путь к файлу базы данных (.xlsx)
+            </div>
+        
+        
+        
+        <div class="exceptions">
+            <strong>Исключения:</strong>
+            <ul>
+                
+                    <li><code>T:System.IO.FileNotFoundException</code> - Если файл не существует</li>
+                
+            </ul>
+        </div>
+    
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseController.viewDatabase</div>
+        <div class="summary">
+            Отображает всю базу данных в консоли
+            </div>
+        
+        
+        
+        
+        <div class="remarks">
+            <strong>Примечания:</strong>
+            <p>
+            Формат вывода:
+            - Таблица животных (ID, Вид, Порода)
+            - Таблица клиентов (ID, Имя, Возраст, Адрес)
+            - Таблица продаж (ID, ID Животного, ID Клиента, Дата, Цена)
+            </p>
+        </div>
+    
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseController.addAnimal</div>
+        <div class="summary">
+            Добавляет новое животное через консольный интерфейс
+            </div>
+        
+        
+        
+        
+        <div class="remarks">
+            <strong>Примечания:</strong>
+            <p>
+            Последовательно запрашивает:
+            1. ID животного (целое число)
+            2. Вид животного (строка)
+            3. Породу животного (строка)
+            </p>
+        </div>
+    
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseController.updateAnimal</div>
+        <div class="summary">
+            Обновляет данные животного через консольный интерфейс
+            </div>
+        
+        
+        
+        
+        <div class="remarks">
+            <strong>Примечания:</strong>
+            <p>
+            Запрашивает ID животного, затем новые значения вида и породы
+            </p>
+        </div>
+    
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseController.deleteAnimal</div>
+        <div class="summary">
+            Удаляет животное через консольный интерфейс
+            </div>
+        
+        
+        
+        
+        <div class="remarks">
+            <strong>Примечания:</strong>
+            <p>
+            Запрашивает ID животного для удаления
+            </p>
+        </div>
+    
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseController.addCustomer</div>
+        <div class="summary">
+            Добавляет нового клиента через консольный интерфейс
+            </div>
+        
+        
+        
+        
+        <div class="remarks">
+            <strong>Примечания:</strong>
+            <p>
+            Последовательно запрашивает:
+            1. ID клиента (целое число)
+            2. Имя (строка)
+            3. Возраст (целое число)
+            4. Адрес (строка)
+            </p>
+        </div>
+    
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseController.updateCustomer</div>
+        <div class="summary">
+            Обновляет данные клиента через консольный интерфейс
+            </div>
+        
+        
+        
+        
+        <div class="remarks">
+            <strong>Примечания:</strong>
+            <p>
+            Запрашивает ID клиента, затем новые значения имени, возраста и адреса
+            </p>
+        </div>
+    
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseController.deleteCustomer</div>
+        <div class="summary">
+            Удаляет клиента через консольный интерфейс
+            </div>
+        
+        
+        
+        
+        <div class="remarks">
+            <strong>Примечания:</strong>
+            <p>
+            Запрашивает ID клиента для удаления
+            </p>
+        </div>
+    
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseController.addSale</div>
+        <div class="summary">
+            Добавляет новую продажу через консольный интерфейс
+            </div>
+        
+        
+        
+        
+        <div class="remarks">
+            <strong>Примечания:</strong>
+            <p>
+            Последовательно запрашивает:
+            1. ID продажи (целое число)
+            2. ID животного (целое число)
+            3. ID клиента (целое число)
+            4. Дата продажи (в формате ГГГГ-ММ-ДД)
+            5. Цену (десятичное число)
+            </p>
+        </div>
+    
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseController.updateSale</div>
+        <div class="summary">
+            Обновляет данные о продаже через консольный интерфейс
+            </div>
+        
+        
+        
+        
+        <div class="remarks">
+            <strong>Примечания:</strong>
+            <p>
+            Запрашивает ID продажи, затем новые значения всех полей
+            </p>
+        </div>
+    
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseController.deleteSale</div>
+        <div class="summary">
+            Удаляет продажу через консольный интерфейс
+            </div>
+        
+        
+        
+        
+        <div class="remarks">
+            <strong>Примечания:</strong>
+            <p>
+            Запрашивает ID продажи для удаления
+            </p>
+        </div>
+    
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseController.executeQueries(<span class="params">System.Int32</span>)</div>
+        <div class="summary">
+            Выполняет аналитические запросы к базе данных
+            </div>
+        
+            <div class="param">
+                <strong>_i:</strong> Номер запроса (1-4)
+            </div>
+        
+        
+        
+        
+        <div class="remarks">
+            <strong>Примечания:</strong>
+            <p>
+            Доступные запросы:
+            1 - Список всех собак
+            2 - Количество продаж по имени клиента
+            3 - Виды животных, купленных клиентами старше 50 лет
+            4 - Общая стоимость попугаев Ара, купленных жителями Уфы
+            </p>
+        </div>
+    
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseController.logAction(<span class="params">System.String</span>)</div>
+        <div class="summary">
+            [Приватный] Записывает действие в лог-файл
+            </div>
+        
+            <div class="param">
+                <strong>message:</strong> Сообщение для логирования
+            </div>
+        
+        
+        
+        
+        <div class="remarks">
+            <strong>Примечания:</strong>
+            <p>
+            Лог сохраняется в файл log.txt в формате:
+            [Дата Время]: Сообщение
+            </p>
+        </div>
+    
+    </div>
+    
+</body>
+</html>

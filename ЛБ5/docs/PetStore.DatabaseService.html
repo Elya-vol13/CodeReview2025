@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Документация PetStore</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        h2 { color: #2980b9; margin-top: 30px; }
+        .class-info { background: #f8f9fa; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+        .method { background: #e8f4fc; padding: 12px; margin: 10px 0; border-radius: 5px; border-left: 4px solid #3498db; }
+        .method-name { font-weight: bold; color: #2c3e50; }
+        .param { margin-left: 20px; font-style: italic; }
+        .returns { color: #27ae60; }
+        .remarks { background: #f1f1f1; padding: 8px; border-radius: 3px; margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <h1>PetStore.DatabaseService</h1>
+    <div class="class-info">
+        <p><strong>Описание:</strong> 
+            Основной сервис для работы с базой данных магазина животных
+            </p>
+        <div class="remarks">
+            Использует Excel-файл в качестве хранилища данных.
+            Содержит три листа: Animals (ID, Species, Breed), 
+            Customers (ID, Name, Age, Address), 
+            Sales (ID, AnimalID, CustomerID, Date, Price).
+            </div>
+    </div>
+
+    <h2>Методы</h2>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.#ctor(<span class="params">System.String</span>)</div>
+        <div class="summary">
+            Инициализирует новый экземпляр DatabaseService
+            </div>
+        
+            <div class="param">
+                <strong>_filePath:</strong> Путь к Excel-файлу с базой данных
+            </div>
+        
+        
+        
+        <div class="exceptions">
+            <strong>Исключения:</strong>
+            <ul>
+                
+                    <li><code>T:System.IO.FileNotFoundException</code> - Выбрасывается если файл не существует</li>
+                
+            </ul>
+        </div>
+    
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.getAnimals</div>
+        <div class="summary">
+            Получает список всех животных из базы данных
+            </div>
+        
+        
+        <div class="returns">
+            <strong>Возвращает:</strong> Список объектов Animal
+        </div>
+    
+        
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.getAnimalById(<span class="params">System.Int32</span>)</div>
+        <div class="summary">
+            Находит животное по идентификатору
+            </div>
+        
+            <div class="param">
+                <strong>_id:</strong> ID животного
+            </div>
+        
+        
+        <div class="returns">
+            <strong>Возвращает:</strong> Объект Animal или null если не найдено
+        </div>
+    
+        
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.addAnimal(<span class="params">PetStore.Animal</span>)</div>
+        <div class="summary">
+            Добавляет новое животное в базу данных
+            </div>
+        
+            <div class="param">
+                <strong>_animal:</strong> Объект Animal для добавления
+            </div>
+        
+        
+        
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.updateAnimal(<span class="params">System.Int32, PetStore.Animal</span>)</div>
+        <div class="summary">
+            Обновляет данные животного
+            </div>
+        
+            <div class="param">
+                <strong>_id:</strong> ID животного
+            </div>
+        
+            <div class="param">
+                <strong>_updatedAnimal:</strong> Новые данные животного
+            </div>
+        
+        
+        
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.deleteAnimal(<span class="params">System.Int32</span>)</div>
+        <div class="summary">
+            Удаляет животное из базы данных
+            </div>
+        
+            <div class="param">
+                <strong>_id:</strong> ID животного для удаления
+            </div>
+        
+        
+        
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.getAnimalsBySpecies(<span class="params">System.String</span>)</div>
+        <div class="summary">
+            Фильтрует животных по виду
+            </div>
+        
+            <div class="param">
+                <strong>_species:</strong> Вид животного (без учета регистра)
+            </div>
+        
+        
+        <div class="returns">
+            <strong>Возвращает:</strong> Список животных указанного вида
+        </div>
+    
+        
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.getCustomers</div>
+        <div class="summary">
+            Получает список всех клиентов
+            </div>
+        
+        
+        <div class="returns">
+            <strong>Возвращает:</strong> Список объектов Customer
+        </div>
+    
+        
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.getCustomerById(<span class="params">System.Int32</span>)</div>
+        <div class="summary">
+            Находит клиента по идентификатору
+            </div>
+        
+            <div class="param">
+                <strong>_id:</strong> ID клиента
+            </div>
+        
+        
+        <div class="returns">
+            <strong>Возвращает:</strong> Объект Customer или null если не найдено
+        </div>
+    
+        
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.addCustomer(<span class="params">PetStore.Customer</span>)</div>
+        <div class="summary">
+            Добавляет нового клиента
+            </div>
+        
+            <div class="param">
+                <strong>_customer:</strong> Объект Customer для добавления
+            </div>
+        
+        
+        
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.updateCustomer(<span class="params">System.Int32, PetStore.Customer</span>)</div>
+        <div class="summary">
+            Обновляет данные клиента
+            </div>
+        
+            <div class="param">
+                <strong>_id:</strong> ID клиента
+            </div>
+        
+            <div class="param">
+                <strong>_updatedCustomer:</strong> Новые данные клиента
+            </div>
+        
+        
+        
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.deleteCustomer(<span class="params">System.Int32</span>)</div>
+        <div class="summary">
+            Удаляет клиента
+            </div>
+        
+            <div class="param">
+                <strong>_id:</strong> ID клиента для удаления
+            </div>
+        
+        
+        
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.getCustomerIdByName(<span class="params">System.String</span>)</div>
+        <div class="summary">
+            Находит ID клиента по имени
+            </div>
+        
+            <div class="param">
+                <strong>_name:</strong> Имя клиента (без учета регистра)
+            </div>
+        
+        
+        <div class="returns">
+            <strong>Возвращает:</strong> ID клиента или null если не найден
+        </div>
+    
+        
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.getSales</div>
+        <div class="summary">
+            Получает список всех продаж
+            </div>
+        
+        
+        <div class="returns">
+            <strong>Возвращает:</strong> Список объектов Sale
+        </div>
+    
+        
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.getSaleById(<span class="params">System.Int32</span>)</div>
+        <div class="summary">
+            Находит продажу по идентификатору
+            </div>
+        
+            <div class="param">
+                <strong>_id:</strong> ID продажи
+            </div>
+        
+        
+        <div class="returns">
+            <strong>Возвращает:</strong> Объект Sale или null если не найдено
+        </div>
+    
+        
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.addSale(<span class="params">PetStore.Sale</span>)</div>
+        <div class="summary">
+            Добавляет новую продажу
+            </div>
+        
+            <div class="param">
+                <strong>_sale:</strong> Объект Sale для добавления
+            </div>
+        
+        
+        
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.updateSale(<span class="params">System.Int32, PetStore.Sale</span>)</div>
+        <div class="summary">
+            Обновляет данные о продаже
+            </div>
+        
+            <div class="param">
+                <strong>_id:</strong> ID продажи
+            </div>
+        
+            <div class="param">
+                <strong>_updatedSale:</strong> Новые данные о продаже
+            </div>
+        
+        
+        
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.deleteSale(<span class="params">System.Int32</span>)</div>
+        <div class="summary">
+            Удаляет продажу
+            </div>
+        
+            <div class="param">
+                <strong>_id:</strong> ID продажи для удаления
+            </div>
+        
+        
+        
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.getSalesCountByCustomerName(<span class="params">System.String</span>)</div>
+        <div class="summary">
+            Считает количество продаж по имени клиента
+            </div>
+        
+            <div class="param">
+                <strong>_customerName:</strong> Имя клиента
+            </div>
+        
+        
+        <div class="returns">
+            <strong>Возвращает:</strong> Количество продаж
+        </div>
+    
+        
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.getAnimalSpeciesPurchasedBySeniors</div>
+        <div class="summary">
+            Получает виды животных, купленных клиентами старше 50 лет
+            </div>
+        
+        
+        <div class="returns">
+            <strong>Возвращает:</strong> Список уникальных видов
+        </div>
+    
+        
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.getTotalPriceOfAraPurchasedByUfaResidents</div>
+        <div class="summary">
+            Вычисляет общую стоимость попугаев Ара, купленных жителями Уфы
+            </div>
+        
+        
+        <div class="returns">
+            <strong>Возвращает:</strong> Суммарная стоимость
+        </div>
+    
+        
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.readAnimals</div>
+        <div class="summary">
+            [Приватный] Читает данные о животных из Excel-листа
+            </div>
+        
+        
+        <div class="returns">
+            <strong>Возвращает:</strong> Список животных
+        </div>
+    
+        
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.readCustomers</div>
+        <div class="summary">
+            [Приватный] Читает данные о клиентах из Excel-листа
+            </div>
+        
+        
+        <div class="returns">
+            <strong>Возвращает:</strong> Список клиентов
+        </div>
+    
+        
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.readSales</div>
+        <div class="summary">
+            [Приватный] Читает данные о продажах из Excel-листа
+            </div>
+        
+        
+        <div class="returns">
+            <strong>Возвращает:</strong> Список продаж
+        </div>
+    
+        
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.addAnimalToTable(<span class="params">PetStore.Animal</span>)</div>
+        <div class="summary">
+            [Приватный] Добавляет животное в таблицу Excel
+            </div>
+        
+            <div class="param">
+                <strong>_animal:</strong> Объект Animal для добавления
+            </div>
+        
+        
+        
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.removeAnimalFromTable(<span class="params">System.Int32</span>)</div>
+        <div class="summary">
+            [Приватный] Удаляет животное из таблицы Excel
+            </div>
+        
+            <div class="param">
+                <strong>_id:</strong> ID животного
+            </div>
+        
+        
+        
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.updateAnimalInTable(<span class="params">System.Int32, PetStore.Animal</span>)</div>
+        <div class="summary">
+            [Приватный] Обновляет данные животного в таблице Excel
+            </div>
+        
+            <div class="param">
+                <strong>_id:</strong> ID животного
+            </div>
+        
+            <div class="param">
+                <strong>_updatedAnimal:</strong> Обновленные данные
+            </div>
+        
+        
+        
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.addCustomerToTable(<span class="params">PetStore.Customer</span>)</div>
+        <div class="summary">
+            [Приватный] Добавляет клиента в таблицу Excel
+            </div>
+        
+            <div class="param">
+                <strong>_customer:</strong> Объект Customer для добавления
+            </div>
+        
+        
+        
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.removeCustomerFromTable(<span class="params">System.Int32</span>)</div>
+        <div class="summary">
+            [Приватный] Удаляет клиента из таблицы Excel
+            </div>
+        
+            <div class="param">
+                <strong>_id:</strong> ID клиента
+            </div>
+        
+        
+        
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.updateCustomerInTable(<span class="params">System.Int32, PetStore.Customer</span>)</div>
+        <div class="summary">
+            [Приватный] Обновляет данные клиента в таблице Excel
+            </div>
+        
+            <div class="param">
+                <strong>_id:</strong> ID клиента
+            </div>
+        
+            <div class="param">
+                <strong>_updatedCustomer:</strong> Обновленные данные
+            </div>
+        
+        
+        
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.addSaleToTable(<span class="params">PetStore.Sale</span>)</div>
+        <div class="summary">
+            [Приватный] Добавляет продажу в таблицу Excel
+            </div>
+        
+            <div class="param">
+                <strong>_sale:</strong> Объект Sale для добавления
+            </div>
+        
+        
+        
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.removeSaleFromTable(<span class="params">System.Int32</span>)</div>
+        <div class="summary">
+            [Приватный] Удаляет продажу из таблицы Excel
+            </div>
+        
+            <div class="param">
+                <strong>_id:</strong> ID продажи
+            </div>
+        
+        
+        
+        
+    </div>
+    
+    <div class="method">
+        <div class="method-name">PetStore.DatabaseService.updateSaleInTable(<span class="params">System.Int32, PetStore.Sale</span>)</div>
+        <div class="summary">
+            [Приватный] Обновляет данные о продаже в таблице Excel
+            </div>
+        
+            <div class="param">
+                <strong>_id:</strong> ID продажи
+            </div>
+        
+            <div class="param">
+                <strong>_updatedSale:</strong> Обновленные данные
+            </div>
+        
+        
+        
+        
+    </div>
+    
+</body>
+</html>

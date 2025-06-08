@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PetStore</name>
+    </assembly>
+    <members>
+        <!-- Класс DatabaseController -->
+        <member name="T:PetStore.DatabaseController">
+            <summary>
+            Контроллер для управления базой данных через консольный интерфейс
+            </summary>
+            <remarks>
+            Обеспечивает взаимодействие между пользователем и DatabaseService.
+            Все изменения автоматически сохраняются в файл базы данных.
+            </remarks>
+        </member>
+
+        <!-- Конструктор -->
+        <member name="M:PetStore.DatabaseController.#ctor(System.String)">
+            <summary>
+            Инициализирует новый экземпляр DatabaseController
+            </summary>
+            <param name="_filePath">Путь к файлу базы данных (.xlsx)</param>
+            <exception cref="T:System.IO.FileNotFoundException">Если файл не существует</exception>
+        </member>
+
+        <!-- Основные методы отображения -->
+        <member name="M:PetStore.DatabaseController.viewDatabase">
+            <summary>
+            Отображает всю базу данных в консоли
+            </summary>
+            <remarks>
+            Формат вывода:
+            - Таблица животных (ID, Вид, Порода)
+            - Таблица клиентов (ID, Имя, Возраст, Адрес)
+            - Таблица продаж (ID, ID Животного, ID Клиента, Дата, Цена)
+            </remarks>
+        </member>
+
+        <!-- Методы работы с животными -->
+        <member name="M:PetStore.DatabaseController.addAnimal">
+            <summary>
+            Добавляет новое животное через консольный интерфейс
+            </summary>
+            <remarks>
+            Последовательно запрашивает:
+            1. ID животного (целое число)
+            2. Вид животного (строка)
+            3. Породу животного (строка)
+            </remarks>
+        </member>
+
+        <member name="M:PetStore.DatabaseController.updateAnimal">
+            <summary>
+            Обновляет данные животного через консольный интерфейс
+            </summary>
+            <remarks>
+            Запрашивает ID животного, затем новые значения вида и породы
+            </remarks>
+        </member>
+
+        <member name="M:PetStore.DatabaseController.deleteAnimal">
+            <summary>
+            Удаляет животное через консольный интерфейс
+            </summary>
+            <remarks>
+            Запрашивает ID животного для удаления
+            </remarks>
+        </member>
+
+        <!-- Методы работы с клиентами -->
+        <member name="M:PetStore.DatabaseController.addCustomer">
+            <summary>
+            Добавляет нового клиента через консольный интерфейс
+            </summary>
+            <remarks>
+            Последовательно запрашивает:
+            1. ID клиента (целое число)
+            2. Имя (строка)
+            3. Возраст (целое число)
+            4. Адрес (строка)
+            </remarks>
+        </member>
+
+        <member name="M:PetStore.DatabaseController.updateCustomer">
+            <summary>
+            Обновляет данные клиента через консольный интерфейс
+            </summary>
+            <remarks>
+            Запрашивает ID клиента, затем новые значения имени, возраста и адреса
+            </remarks>
+        </member>
+
+        <member name="M:PetStore.DatabaseController.deleteCustomer">
+            <summary>
+            Удаляет клиента через консольный интерфейс
+            </summary>
+            <remarks>
+            Запрашивает ID клиента для удаления
+            </remarks>
+        </member>
+
+        <!-- Методы работы с продажами -->
+        <member name="M:PetStore.DatabaseController.addSale">
+            <summary>
+            Добавляет новую продажу через консольный интерфейс
+            </summary>
+            <remarks>
+            Последовательно запрашивает:
+            1. ID продажи (целое число)
+            2. ID животного (целое число)
+            3. ID клиента (целое число)
+            4. Дата продажи (в формате ГГГГ-ММ-ДД)
+            5. Цену (десятичное число)
+            </remarks>
+        </member>
+
+        <member name="M:PetStore.DatabaseController.updateSale">
+            <summary>
+            Обновляет данные о продаже через консольный интерфейс
+            </summary>
+            <remarks>
+            Запрашивает ID продажи, затем новые значения всех полей
+            </remarks>
+        </member>
+
+        <member name="M:PetStore.DatabaseController.deleteSale">
+            <summary>
+            Удаляет продажу через консольный интерфейс
+            </summary>
+            <remarks>
+            Запрашивает ID продажи для удаления
+            </remarks>
+        </member>
+
+        <!-- Методы запросов -->
+        <member name="M:PetStore.DatabaseController.executeQueries(System.Int32)">
+            <summary>
+            Выполняет аналитические запросы к базе данных
+            </summary>
+            <param name="_i">Номер запроса (1-4)</param>
+            <remarks>
+            Доступные запросы:
+            1 - Список всех собак
+            2 - Количество продаж по имени клиента
+            3 - Виды животных, купленных клиентами старше 50 лет
+            4 - Общая стоимость попугаев Ара, купленных жителями Уфы
+            </remarks>
+        </member>
+
+        <!-- Приватные методы -->
+        <member name="M:PetStore.DatabaseController.logAction(System.String)">
+            <summary>
+            [Приватный] Записывает действие в лог-файл
+            </summary>
+            <param name="message">Сообщение для логирования</param>
+            <remarks>
+            Лог сохраняется в файл log.txt в формате:
+            [Дата Время]: Сообщение
+            </remarks>
+        </member>
+    </members>
+</doc>

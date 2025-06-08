@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PetStore</name>
+    </assembly>
+    <members>
+        <member name="T:PetStore.Sale">
+            <summary>
+            Класс, представляющий информацию о продаже
+            </summary>
+        </member>
+
+        <member name="P:PetStore.Sale.Id">
+            <summary>
+            Уникальный идентификатор продажи
+            </summary>
+        </member>
+
+        <member name="P:PetStore.Sale.AnimalId">
+            <summary>
+            ID проданного животного
+            </summary>
+        </member>
+
+        <member name="P:PetStore.Sale.CustomerId">
+            <summary>
+            ID покупателя
+            </summary>
+        </member>
+
+        <member name="P:PetStore.Sale.Date">
+            <summary>
+            Дата совершения продажи
+            </summary>
+        </member>
+
+        <member name="P:PetStore.Sale.Price">
+            <summary>
+            Цена продажи
+            </summary>
+        </member>
+        
+        <member name="M:PetStore.Sale.#ctor(System.Int32,System.Int32,System.Int32,System.DateTime,System.Decimal)">
+            <summary>
+            Инициализирует новый экземпляр класса Sale
+            </summary>
+            <param name="_id">ID продажи</param>
+            <param name="_animalId">ID животного</param>
+            <param name="_customerId">ID покупателя</param>
+            <param name="_date">Дата продажи</param>
+            <param name="_price">Цена</param>
+        </member>
+    </members>
+</doc>

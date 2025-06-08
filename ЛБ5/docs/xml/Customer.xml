@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PetStore</name>
+    </assembly>
+    <members>
+        <member name="T:PetStore.Customer">
+            <summary>
+            Класс, представляющий покупателя в магазине
+            </summary>
+        </member>
+
+        <member name="P:PetStore.Customer.Id">
+            <summary>
+            Уникальный идентификатор покупателя
+            </summary>
+        </member>
+
+        <member name="P:PetStore.Customer.Name">
+            <summary>
+            Полное имя покупателя
+            </summary>
+        </member>
+
+        <member name="P:PetStore.Customer.Age">
+            <summary>
+            Возраст покупателя
+            </summary>
+        </member>
+
+        <member name="P:PetStore.Customer.Address">
+            <summary>
+            Адрес покупателя
+            </summary>
+        </member>
+        
+        <member name="M:PetStore.Customer.#ctor(System.Int32,System.String,System.Int32,System.String)">
+            <summary>
+            Инициализирует новый экземпляр класса Customer
+            </summary>
+            <param name="_id">ID покупателя</param>
+            <param name="_name">Имя покупателя</param>
+            <param name="_age">Возраст покупателя</param>
+            <param name="_address">Адрес покупателя</param>
+        </member>
+    </members>
+</doc>
